@@ -1,0 +1,8 @@
+mathworks_network_license_manager_glnxa64.zip
+debhelper-build-stamp
+*.substvars
+daemons/
+build/
+debian/files
+debian/flexlm
+debian/.debhelper

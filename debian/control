@@ -1,0 +1,16 @@
+Source: flexlm
+Section: math
+Priority: optional
+Maintainer: Julien Guillod <julien.guillod@sorbonne-universite.fr>
+Build-Depends: debhelper (>=11~), unzip
+Standards-Version: 4.1.4
+Homepage: https://www.openlm.com/what-is-flexlm-what-is-flexnet/
+
+Package: flexlm
+Architecture: amd64
+Multi-Arch: foreign
+Depends: lsb-core, adduser, ${shlibs:Depends}, ${misc:Depends}
+Description: Commercial license server used for example by MATLAB and Maple.
+ FLEXlm administers licenses for organizations running multiple instances
+ of different software with a network license.
+ Version numbers correspond to MATLAB version and not FlexNet Version.

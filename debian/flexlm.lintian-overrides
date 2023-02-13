@@ -1,0 +1,3 @@
+flexlm: binary-without-manpage
+flexlm: hardening-no-pie
+flexlm: hardening-no-relro

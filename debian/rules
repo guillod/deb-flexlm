@@ -1,0 +1,40 @@
+#!/usr/bin/make -f
+export DESTDIR=$(CURDIR)/debian/flexlm
+# Upstream version of FLEXlm (in fact corresponding MATLAB version, without revision)
+export VERSION=$(shell dpkg-parsechangelog --show-field Version | cut -d'-' -f1)
+
+%:
+	dh $@
+
+override_dh_clean:
+	@rm build -Rf
+	dh_clean
+
+build:
+
+	# Selecting installer and extracting
+	@if [ -f mathworks_network_license_manager_glnxa64.zip ]; then \
+		unzip mathworks_network_license_manager_glnxa64.zip -d build; \
+	else \
+		echo "MathWorks network license manager installer not provided at $(CURDIR)/mathworks_network_license_manager_glnxa64.zip"; \
+		exit 1; \
+	fi
+
+override_dh_install:
+
+	# Installing flexlm
+	@dh_install build/etc/glnxa64/* usr/sbin/
+
+	# Installing daemons
+	@if [ -d daemons ]; then \
+		for f in daemons/* ; do \
+			echo "Installing $$f"; \
+			dh_install $$f usr/sbin; \
+		done \
+	fi
+
+# Do no strip
+override_dh_strip_nondeterminism:
+	
+override_dh_strip:
+	

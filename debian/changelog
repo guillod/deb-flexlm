@@ -1,0 +1,5 @@
+flexlm (2022b) unstable; urgency=medium
+
+  * Upstream version shipped with MATLAB 2022b - in fact FlexNet 11.18.1
+
+ -- Julien Guillod <julien.guillod@sorbonne-universite.fr>  Mon, 13 Feb 2023 08:52:50 +0100
